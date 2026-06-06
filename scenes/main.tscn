@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://daxhuifpjk0dh"]
+
+[ext_resource type="Theme" uid="uid://cou72ox38bqbf" path="res://themes/ui_theme.tres" id="1_jyhfs"]
+[ext_resource type="Theme" uid="uid://so2lsjr3gen" path="res://themes/main_theme.tres" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://i5bj3s76inii" path="res://scenes/main.gd" id="2_85g3d"]
+[ext_resource type="Script" uid="uid://fxpke1d4vcpf" path="res://scenes/style_editor.gd" id="3_choun"]
+[ext_resource type="Theme" uid="uid://ben2id8mqmpdr" path="res://themes/map_theme.tres" id="3_tefeu"]
+[ext_resource type="Script" uid="uid://celdpooychksd" path="res://ui/rumor_graph.gd" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bwqxtoaf5csii" path="res://scenes/element_edit.tscn" id="5_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bnur4vw6afnaf" path="res://image/icons/plus.svg" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://d2pul1gpr8h8c" path="res://ui/ui_curiosity.tscn" id="9_eb6dy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_choun"]
+
+[node name="Main" type="Control" unique_id=1953458924]
+texture_filter = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tbgi4")
+script = ExtResource("2_85g3d")
+
+[node name="Panel" type="Panel" parent="." unique_id=1528938999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1628723740]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=1304037279]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer" unique_id=459692085]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MenuBar" type="MenuBar" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=959159043]
+layout_mode = 2
+
+[node name="FileButton" type="PopupMenu" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar" unique_id=1259604705]
+unique_name_in_owner = true
+title = "File"
+item_count = 8
+item_0/text = "New"
+item_0/id = 0
+item_1/text = "Open..."
+item_1/id = 1
+item_2/id = 9
+item_2/separator = true
+item_3/text = "(open recent)"
+item_3/id = 4
+item_3/disabled = true
+item_4/id = 5
+item_4/separator = true
+item_5/text = "Save"
+item_5/id = 2
+item_6/text = "Save As"
+item_6/id = 3
+item_7/id = 8
+item_7/separator = true
+
+[node name="EditButton" type="PopupMenu" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar" unique_id=2094832383]
+unique_name_in_owner = true
+title = "Edit"
+
+[node name="ViewButton" type="PopupMenu" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar" unique_id=1441008544]
+unique_name_in_owner = true
+title = "View"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=643619443]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StyleEditor" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=668623855]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_choun")
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" unique_id=181605555]
+layout_mode = 2
+text = "Style:"
+
+[node name="StyleOption" type="OptionButton" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" unique_id=1340765947]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "The map will use this style on newly created Curiosities, or for the current selection."
+selected = 0
+item_count = 1
+popup/item_0/text = "Red"
+popup/item_0/id = 0
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" unique_id=496928383]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_choun")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" unique_id=1255524133]
+layout_mode = 2
+text = "Size:"
+
+[node name="SizeOption" type="SpinBox" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" unique_id=681454927]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "The \"size factor\" to apply to new Curiosities, or the selection.
+0 is normal, 1 will be bigger, -1 will be smaller, etc."
+min_value = -4.0
+max_value = 10.0
+rounded = true
+alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/VBoxContainer" unique_id=683186264]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+theme_override_constants/minimum_grab_thickness = 3
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HSplitContainer" unique_id=538074447]
+layout_mode = 2
+theme = ExtResource("1_jyhfs")
+
+[node name="ElementEdit" parent="Panel/VBoxContainer/HSplitContainer/PanelContainer" unique_id=2134335507 node_paths=PackedStringArray("main_node") instance=ExtResource("5_85g3d")]
+unique_name_in_owner = true
+layout_mode = 2
+main_node = NodePath("../../../../..")
+
+[node name="RumorGraph" type="GraphEdit" parent="Panel/VBoxContainer/HSplitContainer" unique_id=618449904]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_tefeu")
+snapping_enabled = false
+snapping_distance = 40
+minimap_enabled = false
+show_menu = false
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+script = ExtResource("4_o6xl0")
+curiosity_scene = ExtResource("9_eb6dy")
+
+[node name="PopupMenu" type="PopupMenu" parent="Panel/VBoxContainer/HSplitContainer/RumorGraph" unique_id=1946215596]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "asdasd"
+size = Vector2i(129, 36)
+theme = ExtResource("1_tbgi4")
+theme_override_font_sizes/font_size = 14
+item_count = 1
+item_0/text = "Add Curiosity"
+item_0/icon = ExtResource("6_tipki")
+item_0/id = 0
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1897010562]
+unique_name_in_owner = true
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.res;Resource Files (binary);application/x-gdresource")
+use_native_dialog = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=904566921]
+unique_name_in_owner = true
+ok_button_text = "Save"
+dialog_text = "File \"filename.res\" has unsaved changes.
+
+Save before closing?"
+
+[connection signal="id_pressed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar/FileButton" to="." method="_on_file_button_id_pressed"]
+[connection signal="size_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_size_changed"]
+[connection signal="style_selection_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_style_selection_changed"]
+[connection signal="item_selected" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor/StyleOption" to="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" method="_on_style_option_item_selected"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor/SizeOption" to="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" method="_on_size_option_value_changed"]
+[connection signal="curiosity_title_changed" from="Panel/VBoxContainer/HSplitContainer/PanelContainer/ElementEdit" to="." method="_on_element_edit_curiosity_title_changed"]
+[connection signal="delete_image" from="Panel/VBoxContainer/HSplitContainer/PanelContainer/ElementEdit" to="." method="_on_element_edit_delete_image"]
+[connection signal="deletion_requested" from="Panel/VBoxContainer/HSplitContainer/PanelContainer/ElementEdit" to="." method="_on_element_edit_deletion_requested"]
+[connection signal="request_load_image" from="Panel/VBoxContainer/HSplitContainer/PanelContainer/ElementEdit" to="." method="_on_element_edit_request_load_image"]
+[connection signal="change_made" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_change_made"]
+[connection signal="connection_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_connection_deselected"]
+[connection signal="connection_selected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_connection_selected"]
+[connection signal="curiosity_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_curiosity_deselected"]
+[connection signal="curiosity_selected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_curiosity_selected"]
+[connection signal="delete_nodes_request" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_rumor_graph_delete_nodes_request"]
+[connection signal="node_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_node_deselected"]
+[connection signal="node_selected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_node_selected"]
+[connection signal="popup_request" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_rumor_graph_popup_request"]
+[connection signal="request_edit_connection_destination_title" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_request_edit_connection_destination_title"]
+[connection signal="request_edit_curiosity_title" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_request_edit_curiosity_title"]
+[connection signal="id_pressed" from="Panel/VBoxContainer/HSplitContainer/RumorGraph/PopupMenu" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_popup_menu_id_pressed"]

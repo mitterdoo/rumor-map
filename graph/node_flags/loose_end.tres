@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NodeFlag" format=3 uid="uid://ch38er4ji16hh"]
+
+[ext_resource type="Script" uid="uid://dppfhjk8g7nkr" path="res://graph/node_flags/node_flag.gd" id="1_56qam"]
+
+[resource]
+script = ExtResource("1_56qam")
+title = "Loose end"
+color = Color(1, 1, 0.3, 1)
+metadata/_custom_type_script = "uid://dppfhjk8g7nkr"

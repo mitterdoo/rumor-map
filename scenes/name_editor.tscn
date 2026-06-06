@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ch006beew2r6n"]
+
+[ext_resource type="Theme" uid="uid://ben2id8mqmpdr" path="res://themes/map_theme.tres" id="1_c8u33"]
+[ext_resource type="Script" uid="uid://d3js037t6gyt2" path="res://ui/note_text_edit.gd" id="2_ccjnv"]
+
+[node name="CurrentNode" type="TextEdit" unique_id=692720429]
+custom_minimum_size = Vector2(200, 0)
+theme = ExtResource("1_c8u33")
+text = "Curiosity 1"
+context_menu_enabled = false
+wrap_mode = 1
+autowrap_mode = 2
+tab_input_mode = false
+scroll_fit_content_height = true
+caret_blink = true
+caret_blink_interval = 0.4
+caret_multiple = false
+script = ExtResource("2_ccjnv")

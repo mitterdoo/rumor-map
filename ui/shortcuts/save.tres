@@ -1,0 +1,10 @@
+[gd_resource type="Shortcut" format=3 uid="uid://rdc38fufyc5a"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ai800"]
+device = -1
+command_or_control_autoremap = true
+keycode = 83
+unicode = 115
+
+[resource]
+events = [SubResource("InputEventKey_ai800")]

@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://bwqxtoaf5csii"]
+
+[ext_resource type="Script" uid="uid://bawolrjg7stdp" path="res://scenes/element_edit.gd" id="1_nboye"]
+[ext_resource type="Theme" uid="uid://cou72ox38bqbf" path="res://themes/ui_theme.tres" id="1_wnhx2"]
+[ext_resource type="PackedScene" uid="uid://bwdln3mihdb3t" path="res://ui/note.tscn" id="2_wnhx2"]
+[ext_resource type="PackedScene" uid="uid://ch006beew2r6n" path="res://scenes/name_editor.tscn" id="3_qw2wt"]
+[ext_resource type="Texture2D" uid="uid://080l6omuojju" path="res://image/icons/image_add.svg" id="5_f6xej"]
+[ext_resource type="Texture2D" uid="uid://bnur4vw6afnaf" path="res://image/icons/plus.svg" id="5_fok26"]
+[ext_resource type="Script" uid="uid://b2f8dor00kvas" path="res://ui/texture_button_single.gd" id="5_vivnb"]
+[ext_resource type="Texture2D" uid="uid://dj2448psr1x7x" path="res://image/icons/image_remove.svg" id="7_rmdq7"]
+[ext_resource type="Texture2D" uid="uid://brojrywlq1u2c" path="res://image/icons/trash.svg" id="8_tcbbg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcbbg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcbbg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.6, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ElementEdit" type="TabContainer" unique_id=1640417787]
+offset_right = 343.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wnhx2")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_tcbbg")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_tcbbg")
+current_tab = 0
+tabs_visible = false
+use_hidden_tabs_for_min_size = true
+tab_0/title = "ElementEdit"
+script = ExtResource("1_nboye")
+note_control_scene = ExtResource("2_wnhx2")
+
+[node name="Editor" type="VBoxContainer" parent="." unique_id=2134335507]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "ElementEdit"
+
+[node name="SidebarTitle" type="Label" parent="Editor" unique_id=1271153093]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Curiosity"
+horizontal_alignment = 1
+
+[node name="CurrentNode" parent="Editor" unique_id=692720429 instance=ExtResource("3_qw2wt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FuckingFocusRing" type="Panel" parent="Editor/CurrentNode" unique_id=1767845414]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_tcbbg")
+
+[node name="ConnectionArrow" type="RichTextLabel" parent="Editor" unique_id=122140228]
+unique_name_in_owner = true
+visible = false
+texture_filter = 4
+layout_mode = 2
+bbcode_enabled = true
+text = "[img=18]res://image/icons/down_arrow.svg[/img]
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="OtherNode" parent="Editor" unique_id=225735115 instance=ExtResource("3_qw2wt")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="FuckingFocusRing" type="Panel" parent="Editor/OtherNode" unique_id=378272339]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_tcbbg")
+
+[node name="ButtonRow" type="HBoxContainer" parent="Editor" unique_id=2112635726]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="ImageButton" type="TextureButton" parent="Editor/ButtonRow" unique_id=388278980]
+unique_name_in_owner = true
+modulate = Color(0.41666675, 1, 0.3, 1)
+texture_filter = 4
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+tooltip_text = "Add Image"
+texture_normal = ExtResource("5_f6xej")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("5_vivnb")
+texture = ExtResource("5_f6xej")
+modulate_normal = Color(0.41666675, 1, 0.3, 1)
+modulate_hover = Color(0.6697972, 1, 0.61056376, 1)
+modulate_disabled = Color(0.39688927, 0.39688927, 0.39688924, 1)
+modulate_pressed = Color(0.8987836, 1, 0.87970537, 1)
+metadata/_custom_type_script = "uid://b2f8dor00kvas"
+
+[node name="DeleteImageButton" type="TextureButton" parent="Editor/ButtonRow" unique_id=576286020]
+unique_name_in_owner = true
+modulate = Color(1, 0.3019608, 0.3019608, 1)
+texture_filter = 4
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+tooltip_text = "Remove Image	"
+texture_normal = ExtResource("7_rmdq7")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("5_vivnb")
+texture = ExtResource("7_rmdq7")
+modulate_normal = Color(1, 0.3019608, 0.3019608, 1)
+modulate_hover = Color(1, 0.52973706, 0.49891776, 1)
+modulate_disabled = Color(0.3328807, 0.33288068, 0.33288068, 1)
+modulate_pressed = Color(1, 0.75771844, 0.73398775, 1)
+metadata/_custom_type_script = "uid://b2f8dor00kvas"
+
+[node name="DeleteNodeButton" type="TextureButton" parent="Editor/ButtonRow" unique_id=1946389228]
+unique_name_in_owner = true
+modulate = Color(1, 0.3019608, 0.3019608, 1)
+texture_filter = 4
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+tooltip_text = "Delete selection"
+texture_normal = ExtResource("8_tcbbg")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("5_vivnb")
+texture = ExtResource("8_tcbbg")
+modulate_normal = Color(1, 0.3019608, 0.3019608, 1)
+modulate_hover = Color(1, 0.52973706, 0.49891776, 1)
+modulate_disabled = Color(0.3328807, 0.33288068, 0.33288068, 1)
+modulate_pressed = Color(1, 0.75771844, 0.73398775, 1)
+metadata/_custom_type_script = "uid://b2f8dor00kvas"
+
+[node name="ImageButtonOld" type="Button" parent="Editor/ButtonRow" unique_id=2100115180]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Add Image"
+
+[node name="DeleteImageButtonOld" type="Button" parent="Editor/ButtonRow" unique_id=612963688]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Remove Image"
+
+[node name="DeleteNodeButtonOld" type="Button" parent="Editor/ButtonRow" unique_id=298126430]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Delete"
+
+[node name="HSeparator" type="HSeparator" parent="Editor" unique_id=1976669427]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="NoteLabel" type="Label" parent="Editor" unique_id=1429990324]
+layout_mode = 2
+text = "Notes"
+horizontal_alignment = 1
+
+[node name="Notes" type="PanelContainer" parent="Editor" unique_id=1550541943]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_iy58a")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Editor/Notes" unique_id=1564932556]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor/Notes/ScrollContainer" unique_id=1677596338]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NoteList" type="VBoxContainer" parent="Editor/Notes/ScrollContainer/VBoxContainer" unique_id=1479299592]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor/Notes/ScrollContainer/VBoxContainer" unique_id=1365676795]
+layout_mode = 2
+alignment = 1
+
+[node name="AddNoteButton" type="TextureButton" parent="Editor/Notes/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=633068145]
+unique_name_in_owner = true
+modulate = Color(0.3, 1, 0.3, 1)
+layout_mode = 2
+texture_normal = ExtResource("5_fok26")
+script = ExtResource("5_vivnb")
+texture = ExtResource("5_fok26")
+modulate_normal = Color(0.3, 1, 0.3, 1)
+modulate_hover = Color(0.61, 1, 0.61, 1)
+modulate_disabled = Color(0.5, 0.5, 0.5, 1)
+metadata/_custom_type_script = "uid://b2f8dor00kvas"
+
+[node name="FileDialog" type="FileDialog" parent="Editor" unique_id=571324032]
+unique_name_in_owner = true
+title = "Open a File"
+initial_position = 2
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png,*.jpg,*.jpeg;Image Files;image/png,image/jpeg")
+use_native_dialog = true
+
+[node name="NoSelection" type="Label" parent="." unique_id=275427120]
+visible = false
+layout_mode = 2
+text = "Nothing is selected.
+
+Click on a Curiosity or Connection to edit.
+Right-click empty space to create a new Curiosity."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_tab_index = 1
+
+[node name="MultipleSelected" type="Label" parent="." unique_id=1452053200]
+visible = false
+layout_mode = 2
+text = "(multiple items selected)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_tab_index = 2
+
+[connection signal="text_changed" from="Editor/CurrentNode" to="." method="_on_current_node_text_changed"]
+[connection signal="text_changed" from="Editor/CurrentNode" to="Editor" method="_on_current_node_text_changed"]
+[connection signal="text_changed" from="Editor/OtherNode" to="." method="_on_other_node_text_changed"]
+[connection signal="text_changed" from="Editor/OtherNode" to="Editor" method="_on_other_node_text_changed"]
+[connection signal="pressed" from="Editor/ButtonRow/ImageButton" to="." method="_on_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/ImageButton" to="Editor" method="_on_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/DeleteImageButton" to="." method="_on_delete_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/DeleteImageButton" to="Editor" method="_on_delete_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/DeleteNodeButton" to="." method="_on_delete_node_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/ImageButtonOld" to="Editor" method="_on_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/DeleteImageButtonOld" to="Editor" method="_on_delete_image_button_pressed"]
+[connection signal="pressed" from="Editor/ButtonRow/DeleteNodeButtonOld" to="Editor" method="_on_delete_node_button_pressed"]
+[connection signal="pressed" from="Editor/Notes/ScrollContainer/VBoxContainer/HBoxContainer/AddNoteButton" to="." method="_on_add_note_button_pressed"]
+[connection signal="pressed" from="Editor/Notes/ScrollContainer/VBoxContainer/HBoxContainer/AddNoteButton" to="Editor" method="_on_add_note_button_pressed"]
+[connection signal="file_selected" from="Editor/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="Editor/FileDialog" to="Editor" method="_on_file_dialog_file_selected"]

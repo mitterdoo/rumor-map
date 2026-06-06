@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NodeStyle" format=3 uid="uid://cuhxytt8ybak3"]
+
+[ext_resource type="Script" uid="uid://ddalyk8ivb6jt" path="res://graph/node_styles/node_style.gd" id="1_5moki"]
+
+[resource]
+script = ExtResource("1_5moki")
+name = "White"
+background_color = Color(0.7, 0.7, 0.7, 1)
+metadata/_custom_type_script = "uid://ddalyk8ivb6jt"

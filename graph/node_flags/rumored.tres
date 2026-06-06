@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NodeFlag" format=3 uid="uid://bsjykcwbwsce4"]
+
+[ext_resource type="Script" uid="uid://dppfhjk8g7nkr" path="res://graph/node_flags/node_flag.gd" id="1_mif3d"]
+
+[resource]
+script = ExtResource("1_mif3d")
+title = "Rumored"
+color = Color(1, 0.65, 0.3, 1)
+metadata/_custom_type_script = "uid://dppfhjk8g7nkr"

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512.00004"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="trash.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="1.0734778"
+     inkscape:cx="65.674389"
+     inkscape:cy="393.58056"
+     inkscape:window-width="2550"
+     inkscape:window-height="1408"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,1,1,0,83.853332,0,1 @ F,0,0,1,0,83.853332,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1"
+       style="fill:#ffffff;stroke-width:21.1671;stroke-linejoin:round"
+       d="M 138.32752 140.59557 L 138.32752 366.70141 A 83.853332 83.853332 0 0 0 222.18217 450.55556 L 331.13123 450.55556 A 83.853332 83.853332 0 0 0 414.98588 366.70141 L 414.98588 140.59557 L 138.32752 140.59557 z M 177.39311 175.1943 L 209.13046 175.1943 L 226.79676 406.04095 L 195.05941 406.04095 L 177.39311 175.1943 z M 260.78803 175.1943 L 292.52538 175.1943 L 292.52538 406.04095 L 260.78803 406.04095 L 260.78803 175.1943 z M 344.18294 175.1943 L 375.92029 175.1943 L 358.25399 406.04095 L 326.51664 406.04095 L 344.18294 175.1943 z "
+       transform="matrix(1.1343102,0,0,1.133362,-57.814517,-46.304659)" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:24;stroke-linecap:round;stroke-linejoin:round"
+       d="M 79.037238,83.586725 H 432.96276"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:24;stroke-linecap:round;stroke-linejoin:round"
+       d="m 208.25885,59.662506 h 95.48229"
+       id="path3" />
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:35.9999;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6"
+       width="119.48229"
+       height="24"
+       x="196.25885"
+       y="59.662506" />
+  </g>
+</svg>

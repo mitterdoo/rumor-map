@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bwdln3mihdb3t"]
+
+[ext_resource type="Theme" uid="uid://cou72ox38bqbf" path="res://themes/ui_theme.tres" id="1_pnemi"]
+[ext_resource type="Script" uid="uid://rl6yh5pue0x6" path="res://ui/note.gd" id="2_ygbav"]
+[ext_resource type="FontFile" uid="uid://bdf8c3q61y0l4" path="res://fonts/space-mono/SpaceMono-Bold.ttf" id="3_6dnu8"]
+[ext_resource type="Script" uid="uid://d3js037t6gyt2" path="res://ui/note_text_edit.gd" id="3_xuagm"]
+[ext_resource type="FontFile" uid="uid://cx32l18alri51" path="res://fonts/roboto/Roboto-Bold.ttf" id="5_6dnu8"]
+
+[node name="Note" type="PanelContainer" unique_id=622057627]
+clip_children = 2
+theme = ExtResource("1_pnemi")
+theme_type_variation = &"NotePanel"
+script = ExtResource("2_ygbav")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1785488930]
+layout_mode = 2
+
+[node name="CategoryPicker" type="Button" parent="HBoxContainer" unique_id=402465302]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+tooltip_text = "Pick a Category for this Note"
+theme_type_variation = &"NoteCategoryPicker"
+
+[node name="CategoryPopup" type="PopupMenu" parent="HBoxContainer/CategoryPicker" unique_id=550067708]
+unique_name_in_owner = true
+item_count = 1
+item_0/text = "test"
+item_0/id = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1655031257]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=335280543]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SourceCuriosity" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1122262213]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "The connected Curiosity that this Note comes from"
+theme_override_fonts/normal_font = ExtResource("3_6dnu8")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[bgcolor=#FFFF00][color=#000000]Curiosity 1 name is very long and goes to multiple lines[/color][/bgcolor]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1612483267]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Note contents here..."
+wrap_mode = 1
+autowrap_mode = 2
+tab_input_mode = false
+scroll_fit_content_height = true
+caret_blink = true
+caret_blink_interval = 0.4
+caret_multiple = false
+script = ExtResource("3_xuagm")
+
+[node name="CategoryLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1206649789]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6dnu8")
+theme_override_font_sizes/font_size = 12
+text = "RUMOR"
+
+[connection signal="button_down" from="HBoxContainer/CategoryPicker" to="." method="_on_category_picker_button_down"]
+[connection signal="pressed" from="HBoxContainer/CategoryPicker" to="." method="_on_category_picker_pressed"]
+[connection signal="index_pressed" from="HBoxContainer/CategoryPicker/CategoryPopup" to="." method="_on_category_popup_index_pressed"]
+[connection signal="focus_exited" from="HBoxContainer/MarginContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_focus_exited"]
+[connection signal="text_changed" from="HBoxContainer/MarginContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

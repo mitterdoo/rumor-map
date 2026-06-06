@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Graph" format=3 uid="uid://bw1nhd4j1xlq4"]
+
+[ext_resource type="Script" uid="uid://b1550nl56v7ym" path="res://graph/note_categories/note_category.gd" id="1_2nutv"]
+[ext_resource type="Resource" uid="uid://d4km4g5an5pex" path="res://graph/note_categories/base.tres" id="2_fx42p"]
+[ext_resource type="Script" uid="uid://3lpp6w1lejwa" path="res://graph/curiosity.gd" id="2_jxxwy"]
+[ext_resource type="Resource" uid="uid://blgfwo2ob82dw" path="res://graph/note_categories/question.tres" id="3_gvlqm"]
+[ext_resource type="Resource" uid="uid://dvc7usadnnl22" path="res://graph/note_categories/rumor.tres" id="4_uqij7"]
+[ext_resource type="Script" uid="uid://dppfhjk8g7nkr" path="res://graph/node_flags/node_flag.gd" id="4_yoafc"]
+[ext_resource type="Script" uid="uid://d2pfq1p6urrg" path="res://graph/graph.gd" id="5_xj4id"]
+[ext_resource type="Resource" uid="uid://ndufle38g5f" path="res://graph/note_categories/theory.tres" id="5_xrg1g"]
+[ext_resource type="Script" uid="uid://ddalyk8ivb6jt" path="res://graph/node_styles/node_style.gd" id="6_4004b"]
+[ext_resource type="Resource" uid="uid://bsjykcwbwsce4" path="res://graph/node_flags/rumored.tres" id="9_hi7oq"]
+[ext_resource type="Resource" uid="uid://ch38er4ji16hh" path="res://graph/node_flags/loose_end.tres" id="10_vgaum"]
+[ext_resource type="Resource" uid="uid://kkfxloeh6rbv" path="res://graph/node_styles/red.tres" id="13_f24nm"]
+[ext_resource type="Resource" uid="uid://6vkf1jmv0pd6" path="res://graph/node_styles/orange.tres" id="14_fjegp"]
+[ext_resource type="Resource" uid="uid://cb4xjbfs0fu4t" path="res://graph/node_styles/yellow.tres" id="15_wt5kk"]
+[ext_resource type="Resource" uid="uid://cf1awtg3iks2a" path="res://graph/node_styles/green.tres" id="16_qouyu"]
+[ext_resource type="Resource" uid="uid://eihxkxhftono" path="res://graph/node_styles/cyan.tres" id="17_xvptb"]
+[ext_resource type="Resource" uid="uid://d2jdq0lixp0jm" path="res://graph/node_styles/blue.tres" id="18_fro0r"]
+[ext_resource type="Resource" uid="uid://cq1a1lurdlkw" path="res://graph/node_styles/purple.tres" id="19_8wcay"]
+[ext_resource type="Resource" uid="uid://cuhxytt8ybak3" path="res://graph/node_styles/white.tres" id="20_57i1j"]
+
+[resource]
+script = ExtResource("5_xj4id")
+styles = Array[ExtResource("6_4004b")]([ExtResource("13_f24nm"), ExtResource("14_fjegp"), ExtResource("15_wt5kk"), ExtResource("16_qouyu"), ExtResource("17_xvptb"), ExtResource("18_fro0r"), ExtResource("19_8wcay"), ExtResource("20_57i1j")])
+flags = Array[ExtResource("4_yoafc")]([ExtResource("9_hi7oq"), ExtResource("10_vgaum")])
+categories = Array[ExtResource("1_2nutv")]([ExtResource("2_fx42p"), ExtResource("3_gvlqm"), ExtResource("4_uqij7"), ExtResource("5_xrg1g")])
+metadata/_custom_type_script = "uid://d2pfq1p6urrg"

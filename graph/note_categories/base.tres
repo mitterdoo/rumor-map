@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NoteCategory" format=3 uid="uid://d4km4g5an5pex"]
+
+[ext_resource type="Script" uid="uid://b1550nl56v7ym" path="res://graph/note_categories/note_category.gd" id="1_c1d68"]
+
+[resource]
+script = ExtResource("1_c1d68")
+title = "(none)"
+color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://b1550nl56v7ym"

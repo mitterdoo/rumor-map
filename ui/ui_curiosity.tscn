@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d2pul1gpr8h8c"]
+
+[ext_resource type="Theme" uid="uid://ben2id8mqmpdr" path="res://themes/map_theme.tres" id="1_ek5mi"]
+[ext_resource type="Script" uid="uid://brku8fft5d237" path="res://ui/ui_curiosity.gd" id="1_ph2xc"]
+[ext_resource type="Texture2D" uid="uid://m5w1cghrktpy" path="res://image/question_mark.png" id="3_ph2xc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sya4"]
+bg_color = Color(1, 0.3977014, 0.3292555, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CuriosityNode" type="GraphElement" unique_id=1082365648]
+offset_right = 168.0
+offset_bottom = 203.0
+theme = ExtResource("1_ek5mi")
+script = ExtResource("1_ph2xc")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1288472200]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_7sya4")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=961139726]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=160538008]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1987448855]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1929237481]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Sample Text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1537215636]
+unique_name_in_owner = true
+modulate = Color(1, 0.3977014, 0.3292555, 1)
+layout_mode = 2
+texture = ExtResource("3_ph2xc")
+expand_mode = 5
+stretch_mode = 5
+
+[connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
+[connection signal="node_selected" from="." to="." method="_on_node_selected"]
+[connection signal="position_offset_changed" from="." to="." method="_on_position_offset_changed"]

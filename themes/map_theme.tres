@@ -1,0 +1,57 @@
+[gd_resource type="Theme" format=3 uid="uid://ben2id8mqmpdr"]
+
+[ext_resource type="FontFile" uid="uid://ocv0j8e638v" path="res://fonts/space-mono/SpaceMono-Bold-Oversampled.ttf" id="1_0lijc"]
+[ext_resource type="FontFile" uid="uid://bdf8c3q61y0l4" path="res://fonts/space-mono/SpaceMono-Bold.ttf" id="1_mydwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38y36"]
+bg_color = Color(0.0285, 0.08115, 0.15, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
+bg_color = Color(1, 0.36, 0.36, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mydwg"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lijc"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+default_font = ExtResource("1_mydwg")
+default_font_size = 24
+GraphEdit/colors/grid_major = Color(1, 1, 1, 0.11764706)
+GraphEdit/colors/grid_minor = Color(1, 1, 1, 0.023529412)
+GraphEdit/styles/panel = SubResource("StyleBoxFlat_38y36")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = -10
+Label/fonts/font = ExtResource("1_0lijc")
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_6a6wx")
+TextEdit/colors/background_color = Color(1, 0.3882353, 0.38431373, 1)
+TextEdit/colors/caret_color = Color(0.047557846, 0.047557577, 0.047557637, 1)
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/constants/line_spacing = 0
+TextEdit/font_sizes/font_size = 20
+TextEdit/styles/normal = SubResource("StyleBoxFlat_mydwg")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_0lijc")
