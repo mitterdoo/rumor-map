@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-TODO.md
-fonts/
+OLD_TODO.md
 bin/
