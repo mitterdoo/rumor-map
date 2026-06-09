@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwqxtoaf5csii" path="res://scenes/element_edit.tscn" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://bnur4vw6afnaf" path="res://image/icons/plus.svg" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://d2pul1gpr8h8c" path="res://ui/ui_curiosity.tscn" id="9_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cj7rtgqpahik6" path="res://scenes/editor_settings_popup.tscn" id="10_choun"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_choun"]
 
@@ -78,6 +79,9 @@ item_7/separator = true
 [node name="EditButton" type="PopupMenu" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar" unique_id=2094832383]
 unique_name_in_owner = true
 title = "Edit"
+item_count = 1
+item_0/text = "Editor settings"
+item_0/id = 0
 
 [node name="ViewButton" type="PopupMenu" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar" unique_id=1441008544]
 unique_name_in_owner = true
@@ -188,7 +192,12 @@ ok_button_text = "Yes"
 dialog_text = "sample text!"
 cancel_button_text = "No"
 
+[node name="EditorSettingsPopup" parent="." unique_id=1430336989 instance=ExtResource("10_choun")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="id_pressed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar/FileButton" to="." method="_on_file_button_id_pressed"]
+[connection signal="id_pressed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar/EditButton" to="." method="_on_edit_button_id_pressed"]
 [connection signal="size_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_size_changed"]
 [connection signal="style_selection_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_style_selection_changed"]
 [connection signal="item_selected" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor/StyleOption" to="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" method="_on_style_option_item_selected"]

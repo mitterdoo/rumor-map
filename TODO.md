@@ -20,7 +20,7 @@
 - - Could maybe be fixed by using a TabView to switch between different states, having the size dictated by its largest tab
 
 # PHASE 2 secondary features
-- [ ] Settings menu
+- [x] Settings menu
 - [ ] Curiosity name entry UX
 - - [ ] Double-click a curiosity to instantly edit its name
 - - [x] Any node creation (add, or new connection) should focus the text for the node's title

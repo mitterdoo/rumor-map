@@ -277,6 +277,9 @@ func clear_graph():
 	current_file = ""
 	changes_made = false
 
+func open_editor_settings():
+	%EditorSettingsPopup.popup_centered()
+
 func _on_file_button_id_pressed(id: int) -> void:
 	if id >= 100 and id < 100 + Settings.RECENT_FILE_COUNT:
 		file_open_recent(id-100)
@@ -304,6 +307,10 @@ func _on_file_button_id_pressed(id: int) -> void:
 			if await _yes_no_outcome:
 				Settings.clear_recent_files()
 				_recompose_file_menu()
+
+func _on_edit_button_id_pressed(id: int) -> void:
+	if id == 0:
+		open_editor_settings()
 
 func _file_save_select_callback(path: String):
 	current_file = path

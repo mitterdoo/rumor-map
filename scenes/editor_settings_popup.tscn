@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cj7rtgqpahik6"]
+
+[ext_resource type="Theme" uid="uid://so2lsjr3gen" path="res://themes/main_theme.tres" id="1_dl7ma"]
+[ext_resource type="Script" uid="uid://banvwg1fuoqap" path="res://scenes/editor_settings_popup.gd" id="1_ktbx4"]
+[ext_resource type="FontFile" uid="uid://cx32l18alri51" path="res://fonts/roboto/Roboto-Bold.ttf" id="3_eo3d5"]
+
+[node name="EditorSettingsPopup" type="Popup" unique_id=1430336989]
+oversampling_override = 1.0
+title = "Settings"
+size = Vector2i(350, 200)
+visible = true
+content_scale_mode = 1
+script = ExtResource("1_ktbx4")
+
+[node name="SettingsMenu" type="Control" parent="." unique_id=1735653197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dl7ma")
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu" unique_id=529173173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/PanelContainer" unique_id=1195238530]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer" unique_id=1058129517]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=2066615799]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eo3d5")
+theme_override_font_sizes/font_size = 20
+text = "Editor settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=1193200117]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1896082103]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1412771576]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=485105498]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Auto-open last file on launch"
+
+[node name="SettingReopen" type="CheckBox" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1100942000]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=204481418]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1952768118]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Backup file count"
+
+[node name="SettingBackupCount" type="SpinBox" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1397358230]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 99999.0
+rounded = true
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1476190112]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1486392778]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "    Backup save frequency (minutes)"
+
+[node name="SettingBackupFrequency" type="SpinBox" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=454173128]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer" unique_id=1536093842]
+layout_mode = 2
+alignment = 1
+
+[node name="OKButton" type="Button" parent="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=780859398]
+layout_mode = 2
+text = "OK"
+
+[connection signal="about_to_popup" from="." to="." method="_pre_popup"]
+[connection signal="toggled" from="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/SettingReopen" to="." method="_on_setting_reopen_toggled"]
+[connection signal="value_changed" from="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/SettingBackupCount" to="." method="_on_setting_backup_count_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/SettingBackupFrequency" to="." method="_on_setting_backup_frequency_value_changed"]
+[connection signal="pressed" from="SettingsMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/OKButton" to="." method="_on_ok_button_pressed"]

@@ -6,7 +6,8 @@ const RECENT_FILE_COUNT = 5
 
 """
 [settings]
-autosave_frequency_minutes=5
+backup_count=5
+backup_frequency_minutes=5
 reopen_current_file=true
 
 [history]
@@ -23,7 +24,8 @@ static var config: ConfigFile
 
 const DEFAULT_CONFIG = {
 	'settings': {
-		'autosave_frequency_minutes': 5,
+		'backup_count': 5,
+		'backup_frequency_minutes': 5,
 		'reopen_current_file': true
 	},
 	'history': {
