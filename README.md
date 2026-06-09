@@ -7,7 +7,7 @@ A (work-in-progress) tool made in Godot capable of creating rumor maps inspired 
 I started this project after watching the Apple TV show *Severance*, with a desire to try and piece together its plot and try to theorize about its upcoming seasons (season 2 was the most recent at the time). Motiviation died down for a couple of months, but was revived when part 4 of the [Valle Verde](https://www.youtube.com/@-Alluvium-) YouTube series was released.
 
 # Installation
-![reddit user complaining of github repo not having a download](https://github.com/user-attachments/assets/5952b64c-5bd3-48b9-972f-41ce7eaaf456)
+![reddit user complaining of github repo not having a download](https://github.com/user-attachments/assets/a0ca88a1-38b0-4cd3-b33a-55b8a878ddca)
 
 There is no support for getting this up and running yet. This is just a raw repo.
 
