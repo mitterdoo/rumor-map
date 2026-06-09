@@ -210,6 +210,7 @@ visible = false
 [connection signal="connection_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_connection_deselected"]
 [connection signal="connection_selected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_connection_selected"]
 [connection signal="curiosity_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_curiosity_deselected"]
+[connection signal="curiosity_double_clicked" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_curiosity_double_clicked"]
 [connection signal="curiosity_selected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="." method="_on_rumor_graph_curiosity_selected"]
 [connection signal="delete_nodes_request" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_rumor_graph_delete_nodes_request"]
 [connection signal="node_deselected" from="Panel/VBoxContainer/HSplitContainer/RumorGraph" to="Panel/VBoxContainer/HSplitContainer/RumorGraph" method="_on_node_deselected"]

@@ -21,8 +21,8 @@
 
 # PHASE 2 secondary features
 - [x] Settings menu
-- [ ] Curiosity name entry UX
-- - [ ] Double-click a curiosity to instantly edit its name
+- [x] Curiosity name entry UX
+- - [x] Double-click a curiosity to instantly edit its name
 - - [x] Any node creation (add, or new connection) should focus the text for the node's title
 - - [x] Curiosity name boxes should have an outline on the box when editing
 - [ ] Flags

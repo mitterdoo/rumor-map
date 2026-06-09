@@ -12,12 +12,14 @@ signal curiosity_deselected
 
 signal curiosity_added
 signal curiosity_deleted
+signal curiosity_double_clicked(ui: CuriosityUI)
 
 signal connection_added
 signal connection_deleted
 
 signal connection_selected
 signal connection_deselected
+
 
 signal my_connection_drag_ended
 signal my_connection_drag_started

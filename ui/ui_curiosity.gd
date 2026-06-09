@@ -90,13 +90,20 @@ func _rescale():
 var cursor_border = 16 # remember to multiply it by scale_factor
 var _is_hovered = false
 func _gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.double_click:
+		accept_event()
+		(get_parent() as RumorGraph).curiosity_double_clicked.emit(self)
+		return
+	
 	if event is InputEventMouseMotion:
 		var adjusted_cursor_border = min(cursor_border, min(size.x, size.y) / 2)
 		var rect = Rect2(adjusted_cursor_border, adjusted_cursor_border, size.x - adjusted_cursor_border*2, size.y - adjusted_cursor_border*2)
 		_is_hovered = not rect.has_point(event.position)
 		_process_cursor()
 	elif event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and _is_hovered:
-		if event.pressed:
+		if event.double_click:
+			print("DOUBLE CLICK")
+		elif event.pressed:
 			accept_event()
 			(get_parent() as RumorGraph).my_connection_drag_started.emit(self)
 			# don't eat the input if we release

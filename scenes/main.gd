@@ -39,7 +39,7 @@ signal _yes_no_outcome(said_yes: bool)
 		%ElementEdit.graph = graph
 
 func get_filename():
-	return "New rumor map" if current_file == "" else current_file.get_file()
+	return "(untitled)" if current_file == "" else current_file.get_file()
 
 func update_window_title():
 	var filename = get_filename()
@@ -212,6 +212,10 @@ func _on_rumor_graph_request_edit_connection_destination_title() -> void:
 
 func _on_rumor_graph_request_edit_curiosity_title() -> void:
 	if %ElementEdit._current_curiosity:
+		%ElementEdit.focus_source_title()
+
+func _on_rumor_graph_curiosity_double_clicked(ui: CuriosityUI) -> void:
+	if %ElementEdit._current_curiosity == ui.curiosity:
 		%ElementEdit.focus_source_title()
 
 func _on_style_editor_style_selection_changed(style: NodeStyle) -> void:
