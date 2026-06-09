@@ -14,15 +14,8 @@
 - - [x] last location for file browser
 
 # BUGS
-## major
-- [ ] Selecting a node doesn't update the internal preferred style and size. It only updates the visible toolbar at top
-- [ ] Select a node, right click somewhere to create a new node. You'll still be editing the original node, not the new one.
-- [ ] Clicking and dragging a node will sometimes get the cursor in a pixel-perfect spot that creates a connection when the mouse is released.
-- [ ] Clicking and dragging a new connection between two existing nodes will focus the title text box (should prob focus the note instead)
-## minor
-- [ ] Resizing or renaming a node (changing its visual size) doesn't correctly update the centerpoint of connections until the next UI redraw (cant redraw on same frame)
-- [ ] If you hover over a connection, click it, and delete it, if there's another connection underneath your mouse and you click without moving, it won't appear as selected.
-- [ ] If you resize the sidebar to its smallest size with a node selected, then deselect it, the "click something" hint text makes it bigger, causing the UI to "jump" unexpectedly
+- [x] move bugs to github issues
+- [x] If you resize the sidebar to its smallest size with a node selected, then deselect it, the "click something" hint text makes it bigger, causing the UI to "jump" unexpectedly
 - - This messes with click and drag operations on Curiosities, offsetting the cursor position incorrectly
 - - Could maybe be fixed by using a TabView to switch between different states, having the size dictated by its largest tab
 
