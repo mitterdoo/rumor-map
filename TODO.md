@@ -33,8 +33,8 @@
 - - [ ] create node
 - - [x] save/load/new
 - [ ] Undo/redo
-- [ ] Autosave
-- - [ ] "attach" autosave to current file, so when the user re-saves they dont have to browse to find it
+- [ ] Automatic backups
+- - [ ] "attach" autosave to current file, so when the user re-saves a recovered backup, they dont have to browse to find the original
 - [ ] Manual or other learning resource
 
 # PHASE 3
