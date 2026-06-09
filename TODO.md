@@ -9,9 +9,9 @@
 - [x] Save/load
 - [x] persistent state saved and loaded in user folder (for settings etc)
 - - [x] Recent files
-- - [ ] clear history function
-- - [ ] remove file from history if it is missing upon opening attempt
-- - [ ] last location for file browser
+- - [x] clear history function
+- - [x] remove file from history if it is missing upon opening attempt
+- - [x] last location for file browser
 
 # BUGS
 ## major
@@ -27,6 +27,7 @@
 - - Could maybe be fixed by using a TabView to switch between different states, having the size dictated by its largest tab
 
 # PHASE 2 secondary features
+- [ ] Settings menu
 - [ ] Curiosity name entry UX
 - - [ ] Double-click a curiosity to instantly edit its name
 - - [x] Any node creation (add, or new connection) should focus the text for the node's title
@@ -49,6 +50,7 @@
 - [ ] Add bar at bottom like Blender's shortcut hints
 - [ ] Add bar at bottom like FL Studio's tooltip
 - [ ] Saved file should remember current position and zoom of camera
+- [ ] Recent files should show filename instead of full path, but distinguish when there are identical filenames listed
 - [ ] User should be able to move the left sidebar and dock it to the bottom or right sides of the screen. should retain resizability
 - [ ] Midpoint of connections should be the center of only the visible portion of the segment unobstructed
 - [ ] Resizing with scroll wheel should update the desired size box at the top

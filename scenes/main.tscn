@@ -182,6 +182,12 @@ dialog_text = "File \"filename.res\" has unsaved changes.
 
 Save before closing?"
 
+[node name="YesNoDialog" type="ConfirmationDialog" parent="." unique_id=655456468]
+unique_name_in_owner = true
+ok_button_text = "Yes"
+dialog_text = "sample text!"
+cancel_button_text = "No"
+
 [connection signal="id_pressed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/MenuBar/FileButton" to="." method="_on_file_button_id_pressed"]
 [connection signal="size_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_size_changed"]
 [connection signal="style_selection_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/StyleEditor" to="." method="_on_style_editor_style_selection_changed"]

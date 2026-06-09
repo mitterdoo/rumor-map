@@ -77,7 +77,20 @@ static func get_recent_files() -> Array:
 		list.append(entry)
 	return list
 
+static func get_last_folder() -> String:
+	return config.get_value("history", "last_folder", "")
+
+static func _set_recent_files(files: Array):
+	Log.print("settings", "Setting new recent files")
+	for i in RECENT_FILE_COUNT:
+		if i >= len(files):
+			config.set_value("history", "recent_" + str(i + 1), "")
+		else:
+			config.set_value("history", "recent_" + str(i + 1), files[i])
+	save()
+
 static func add_recent_file(path: String):
+	Log.print("settings", "Adding recent file '" + path + "'")
 	var recents = get_recent_files()
 	var new_recents = [path]
 	for i in len(recents):
@@ -86,10 +99,22 @@ static func add_recent_file(path: String):
 			continue
 		new_recents.append(recent)
 	
-	for i in RECENT_FILE_COUNT:
-		if i >= len(new_recents):
-			config.set_value("history", "recent_" + str(i + 1), "")
-		else:
-			config.set_value("history", "recent_" + str(i + 1), new_recents[i])
-	
-	save()
+	var folder = path.get_base_dir()
+	if not folder.ends_with("/"):
+		folder += "/"
+	config.set_value("history", "last_folder", folder)
+	_set_recent_files(new_recents)
+
+static func remove_recent_file(path: String):
+	var recents = get_recent_files()
+	if path in recents:
+		Log.print("settings", "Removing recent file '" + path + "'")
+		recents.erase(path)
+		_set_recent_files(recents)
+
+static func clear_recent_files():
+	Log.print("settings", "Clearing settings")
+	_set_recent_files([])
+
+static func clear_last_folder():
+	config.set_value("history", "last_folder", "")

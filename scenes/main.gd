@@ -17,9 +17,18 @@ enum FileMenuOperation {
 	OPEN = 1,
 	SAVE = 2,
 	SAVE_AS = 3,
+	CLEAR_HISTORY = 99,
 	TEMP_LOAD = 69421,
 	TEMP_SAVE = 69420
 }
+enum UnsaveDialogResult {
+	CANCEL,
+	DONT_SAVE,
+	SAVE
+}
+signal _unsaved_outcome(result: UnsaveDialogResult)
+signal _file_open_outcome(path: String)
+signal _yes_no_outcome(said_yes: bool)
 
 @export var graph: Graph:
 	set(value):
@@ -41,6 +50,7 @@ func update_window_title():
 	
 	get_tree().root.title = title
 
+#region Internal refreshers
 func _queue_refresh():
 	## Update the RumorGraph and anything else to match the resource
 	# this should look at existing Controls and align them with the Resource
@@ -67,13 +77,15 @@ func _recompose_file_menu():
 		for recent in recents:
 			menu.add_item(str(recent), 100 + i)
 			i += 1
+		menu.add_item("Clear history", 99)
 	
 	menu.add_separator()
 	menu.add_item("Save", 2)
 	menu.set_item_shortcut(menu.item_count-1, preload("res://ui/shortcuts/save.tres"))
 	menu.add_item("Save As", 3)
 	menu.set_item_shortcut(menu.item_count-1, preload("res://ui/shortcuts/save_as.tres"))
-	
+
+#endregion
 func _create_new_graph():
 	## create a new graph from the default graph Resource
 	## recursive copy
@@ -90,7 +102,12 @@ func _ready():
 	_recompose_file_menu()
 	var current_file = Settings.config.get_value("history", "current_file", "")
 	if Settings.config.get_value("settings", "reopen_current_file", true) and current_file != "":
-		load_graph(current_file)
+		if FileAccess.file_exists(current_file):
+			load_graph(current_file)
+		else:
+			Log.push_warning("main", "Current file '" + current_file + "' does not exist. falling back to new file")
+			Settings.config.set_value("history", "current_file", "")
+			_create_new_graph()
 	else:
 		_create_new_graph()
 	_refresh_style_list()
@@ -109,12 +126,16 @@ func _ready():
 	%ConfirmationDialog.canceled.connect(func(): _unsaved_outcome.emit(UnsaveDialogResult.CANCEL))
 	%ConfirmationDialog.confirmed.connect(func(): _unsaved_outcome.emit(UnsaveDialogResult.SAVE))
 	
+	%YesNoDialog.canceled.connect(func(): _yes_no_outcome.emit(false))
+	%YesNoDialog.confirmed.connect(func(): _yes_no_outcome.emit(true))
+	
 	%FileDialog.file_selected.connect(func(x): _file_open_outcome.emit(x))
 	%FileDialog.canceled.connect(func(): _file_open_outcome.emit(""))
 
 	update_window_title()
 
 	get_tree().set_auto_accept_quit(false)
+
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -275,18 +296,20 @@ func _on_file_button_id_pressed(id: int) -> void:
 		
 		FileMenuOperation.SAVE_AS:
 			file_save(true)
+		
+		FileMenuOperation.CLEAR_HISTORY:
+			%YesNoDialog.title = "Confirm"
+			%YesNoDialog.dialog_text = "Clear recent file history?"
+			%YesNoDialog.popup_centered()
+			if await _yes_no_outcome:
+				Settings.clear_recent_files()
+				_recompose_file_menu()
 
 func _file_save_select_callback(path: String):
 	current_file = path
 	save_graph(path)
 
-enum UnsaveDialogResult {
-	CANCEL,
-	DONT_SAVE,
-	SAVE
-}
-signal _unsaved_outcome(result: UnsaveDialogResult)
-signal _file_open_outcome(path: String)
+
 
 func check_closing_unsaved_warning() -> bool:
 	if not changes_made: return true
@@ -316,6 +339,14 @@ func file_save(save_as: bool = false):
 		%FileDialog.ok_button_text = "Save" if not save_as else "Save as"
 		if current_file != "":
 			%FileDialog.current_path = current_file
+		else:
+			var last_folder = Settings.get_last_folder()
+			if last_folder != "":
+				if DirAccess.dir_exists_absolute(last_folder):
+					# TODO this might not actually work idk
+					%FileDialog.current_path = last_folder
+				else:
+					Settings.clear_last_folder()
 		
 		%FileDialog.popup_file_dialog()
 		
@@ -336,6 +367,13 @@ func file_open():
 	
 	%FileDialog.file_mode = FileDialog.FileMode.FILE_MODE_OPEN_FILE
 	%FileDialog.ok_button_text = "Open"
+	
+	var last_folder = Settings.get_last_folder()
+	if last_folder != "":
+		if DirAccess.dir_exists_absolute(last_folder):
+			%FileDialog.current_path = last_folder
+		else:
+			Settings.clear_last_folder()
 	%FileDialog.popup_file_dialog()
 	
 	var path = await _file_open_outcome
@@ -349,7 +387,16 @@ func file_open_recent(index: int):
 	if index >= len(recents):
 		push_error("Tried to open a recent file out of range (there are " + str(len(recents)) + " tracked)")
 	var path = recents[index]
-	load_graph(path)
+
+	if FileAccess.file_exists(path):	
+		load_graph(path)
+	else:
+		%YesNoDialog.title = "File missing!"
+		%YesNoDialog.dialog_text = "The file at '" + path + "' no longer exists or is not accessible.\nRemove from recent file list?"
+		%YesNoDialog.popup_centered()
+		if await _yes_no_outcome:
+			Settings.remove_recent_file(path)
+			_recompose_file_menu()
 
 func _on_element_edit_deletion_requested(notable: Notable) -> void:
 	if notable is Curiosity:
